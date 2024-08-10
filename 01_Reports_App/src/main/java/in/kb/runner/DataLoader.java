@@ -20,6 +20,9 @@ public class DataLoader implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
+        //to prevent duplicate data to be added
+        repo.deleteAll();;
+
         // Cash Plan Data
         CitizenPlan c1 = new CitizenPlan();
         c1.setCitizenName("John");
