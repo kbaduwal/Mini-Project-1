@@ -16,17 +16,23 @@ public class ReportServiceImpl implements ReportService {
 
     @Override
     public List<String> getPlanNames() {
-        return null;
+//        List<String> planNames = planRepo.getPlanNames();
+//        return planNames;
+        //Above things can be written as
+
+        return planRepo.getPlanNames();
     }
 
     @Override
     public List<String> getPlanStatuses() {
-        return null;
+        return planRepo.getPlanStatus();
     }
 
     @Override
     public List<CitizenPlan> search(SearchRequest request) {
-        return null;
+        List<CitizenPlan> searchResult = planRepo.findAll();
+        System.out.println("\n Search is happening some issue with JSP \n"+searchResult);
+        return planRepo.findAll();
     }
 
     @Override
