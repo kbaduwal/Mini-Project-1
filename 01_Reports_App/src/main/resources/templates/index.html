@@ -50,6 +50,7 @@
             </tr>
 
             <tr>
+                <td> <a class="btn btn-secondary" href="/"> Reset </a> </td>
                 <td><input type="submit" value="Search" class="btn btn-primary" /></td>
             </tr>
         </table>
@@ -66,6 +67,7 @@
                 <th>Holder Name</th>
                 <th>Plan Name</th>
                 <th>Plan Status</th>
+                <th>Gender</th>
                 <th>Start Date</th>
                 <th>End Date</th>
                 <th>Benifit Amt</th>
@@ -78,10 +80,18 @@
                 <td th:text="${plan.citizenName}"></td>
                 <td th:text="${plan.planName}"></td>
                 <td th:text="${plan.planStatus}"></td>
+                <td th:text="${plan.gender}"></td>
                 <td th:text="${plan.planStartDate}"></td>
                 <td th:text="${plan.planEndDate}"></td>
                 <td th:text="${plan.benefitAmount}"></td>
             </tr>
+            <tr>
+                <p th:if="${#lists.isEmpty(plans)}">
+                    <td colspan="8" style="text-align: center;"> No Records Found </td>
+                </p>
+
+            </tr>
+           
         </tbody>
     </table>
     
