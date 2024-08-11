@@ -61,17 +61,30 @@
 
     <table class="table table-striped table-hover">
         <thead>
-        <tr>
-            <th>Id</th>
-            <th>Holder Name</th>
-            <th>Plan Name</th>
-            <th>Plan Status</th>
-            <th>Start Date</th>
-            <th>End Date</th>
-        </tr>
+            <tr>
+                <th>S.N.</th>
+                <th>Holder Name</th>
+                <th>Plan Name</th>
+                <th>Plan Status</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Benifit Amt</th>
+            </tr>
         </thead>
-
+    
+        <tbody>
+            <tr th:each="plan, iterStat : ${plans}">
+                <td th:text="${iterStat.index + 1}"></td>
+                <td th:text="${plan.citizenName}"></td>
+                <td th:text="${plan.planName}"></td>
+                <td th:text="${plan.planStatus}"></td>
+                <td th:text="${plan.planStartDate}"></td>
+                <td th:text="${plan.planEndDate}"></td>
+                <td th:text="${plan.benefitAmount}"></td>
+            </tr>
+        </tbody>
     </table>
+    
 
     <hr />
 
