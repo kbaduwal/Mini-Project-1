@@ -41,4 +41,8 @@ Runner(used to load the data to database table)<br>
 10) DataLoader.java (runner class)<br>
 
 Presentation File<br>
-11) index.jsp<br>
+11) index.html (Thymeleaf) <br>
+
+To work with <br>
+i) Excel ----> Apache Poi(third party) <br>
+ii) Pdf ----> itext pdf / open pdf / aspose <br>

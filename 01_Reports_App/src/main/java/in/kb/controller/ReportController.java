@@ -28,6 +28,11 @@ public class ReportController {
         return "index";
     }
 
+    /*
+    This method is used to load index page
+    @Param model
+    @return String
+     */
     @GetMapping("/")
     public String indexPage(Model model){
         /*
@@ -41,7 +46,7 @@ public class ReportController {
     }
 
     private void init(Model model) {
-
+//        model.addAttribute("search", new SearchRequest());
         model.addAttribute("names",service.getPlanNames());
         model.addAttribute("status",service.getPlanStatuses());
     }
