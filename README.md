@@ -46,3 +46,18 @@ Presentation File<br>
 To work with <br>
 i) Excel ----> Apache Poi(third party) <br>
 ii) Pdf ----> itext pdf / open pdf / aspose <br>
+
+
+------------------------------------------------
+Sending Email using SpringBoot
+-------------------------------------------------
+
+i) Add mail-starter dependency in pom.xml file. <br>
+ii)LogIn into your gmail account, enable 2 step verification then generate app password and copy that(save it).<br>
+    EX: https://myaccount.google.com/ <br>
+iii) We need to configure SMTP properties to application.properties file.(To Communicate with Mail server to send email.). <br>
+iv) Create Email Utility class to send email from our application by suing JavaMailSender.<br>
+    Note: In JavaMailSender we have send() method...<br>
+v) Send method can take SimpleMessage / MimeMessage as parameter<br>
+        SimpleMessage : To send Plain emails(Text format)<br>
+        MimeMessage : Email with Attachment<br>
