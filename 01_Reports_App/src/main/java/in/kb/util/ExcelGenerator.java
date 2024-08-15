@@ -9,12 +9,14 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.stereotype.Component;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.List;
 
 @Component
 public class ExcelGenerator {
 
-    public void generate(HttpServletResponse response, List<CitizenPlan> records) throws Exception{
+    public void generate(HttpServletResponse response, List<CitizenPlan> records, File file) throws Exception{
         Workbook workbook = new HSSFWorkbook();
         Sheet sheet = workbook.createSheet("plans-data");
         Row headerRow = sheet.createRow(0);
@@ -58,9 +60,9 @@ public class ExcelGenerator {
             dataRowIndex++;
         }
 
-//        FileOutputStream fos = new FileOutputStream(new File("plan.xls"));
-//        workbook.write(fos);
-//        workbook.close();
+        FileOutputStream fos = new FileOutputStream(file);
+        workbook.write(fos);
+        workbook.close();
 
         ServletOutputStream outputStream = response.getOutputStream();
         workbook.write(outputStream);

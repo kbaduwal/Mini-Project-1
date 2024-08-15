@@ -97,21 +97,36 @@ public class ReportServiceImpl implements ReportService {
 
     @Override
     public boolean exportExcel(HttpServletResponse response) throws Exception {
+
+        File f = new File("Plans.xls");
+
         List<CitizenPlan> plans = planRepo.findAll();
-        excelGenerator.generate(response,plans);
+        excelGenerator.generate(response,plans,f);
 
         String subject = "Text Mail Subject";
         String body = "<h1>Test mail body. </h1>";
         String to = "khakendrabaduwal1lh@gmail.com";
 
-        emailUtil.sendMail(subject,body,to);
+        emailUtil.sendMail(subject,body,to,f);
+        f.delete();
+
         return true;
     }
 
     @Override
     public boolean exportPdf(HttpServletResponse response) throws Exception {
+        File f = new File("Plans.pdf");
+
        List<CitizenPlan> plans = planRepo.findAll();
-        pdfGenerator.generate(response,plans);
+        pdfGenerator.generate(response,plans,f);
+
+        String subject = "Text Mail Subject";
+        String body = "<h1>Test mail body. </h1>";
+        String to = "khakendrabaduwal1lh@gmail.com";
+
+        emailUtil.sendMail(subject,body,to,f);
+        f.delete();
+
         return true;
     }
 

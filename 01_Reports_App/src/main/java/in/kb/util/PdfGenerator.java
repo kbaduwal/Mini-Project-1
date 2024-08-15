@@ -7,14 +7,18 @@ import in.kb.entity.CitizenPlan;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Component;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.List;
 
 @Component
 public class PdfGenerator {
-    public void generate(HttpServletResponse response, List<CitizenPlan> plans) throws Exception{
+    public void generate(HttpServletResponse response, List<CitizenPlan> plans, File f) throws Exception{
         Document document = new Document(PageSize.A4);
 
-        PdfWriter.getInstance(document,response.getOutputStream());
+       PdfWriter.getInstance(document, response.getOutputStream());
+       PdfWriter.getInstance(document,new FileOutputStream(f));
+
         document.open();
 
         // Creating font
